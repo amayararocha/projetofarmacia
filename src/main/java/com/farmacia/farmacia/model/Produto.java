@@ -13,6 +13,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
 
@@ -31,7 +32,7 @@ public class Produto {
 	//descrição será opcional.
 	private String descricaoProduto;
 	
-	@NotBlank(message = "O atributo é obrigatório!")
+	@NotNull
 	@Positive
 	private double preco;
 	

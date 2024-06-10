@@ -53,8 +53,8 @@ public class ProdutoController {
 	}
 
 	@PostMapping
-	public ResponseEntity<Produto> post(@Valid @RequestBody Produto produto) {
-		if (produtoRepository.existsById(produto.getCategoria().getId()))
+	public ResponseEntity<Produto> postProduto(@Valid @RequestBody Produto produto) {
+		if (categoriaRepository.existsById(produto.getCategoria().getId()))
 			return ResponseEntity.status(HttpStatus.CREATED)
 					.body(produtoRepository.save(produto));
 
@@ -62,7 +62,7 @@ public class ProdutoController {
 	}
 
 	@PutMapping
-	public ResponseEntity<Produto> put(@Valid @RequestBody Produto produto) {
+	public ResponseEntity<Produto> putProduto(@Valid @RequestBody Produto produto) {
 		if (produtoRepository.existsById(produto.getId())) {
 
 			if (categoriaRepository.existsById(produto.getCategoria().getId()))
